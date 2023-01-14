@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
+  user-select: none;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  background-color: lightgray;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBox {
+  width: 60vw;
+  height: 90vh;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 5px 10px 10px gray;
+}
+
+.questionHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+.mainContent {
+  padding: 10px 30px;
+
+}
+
+.optionBox {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 13px;
+  cursor: pointer;
+}
+
+
+
+.SBtn {
+  background-color: black;
+  font-size: 15px;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 15px 0px;
+}
+
+.nextBtn:hover {
+  opacity: 0.7;
+  transition: 0.3s ease;
+}
+
+.progressBox {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  width: 94%;
+}
+
+.progressText {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prog {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  height: 25px;
+  /* border: 1px solid lightgray; */
+  transition: 0.5s ease;
+}
+
+.prog1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  border-radius: 50px;
+  height: 25px;
+  transition: 0.5s ease;
+}
+
+.red {
+  background-color: red;
+  color: white;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.green {
+  background-color: green;
+  color: white;
+  pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.disableOption {
+  background-color: lightgray;
+  pointer-events: none;
+}
+
+/* Instructions Screen */
+.instructionHeader {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.instructions {
+  padding: 15px 30px;
+}
+
+.instructions li {
+  margin-top: 10px;
+}
+
+.nestedInstructions {
+  list-style-type: disc;
+  padding: 10px 20px;
+}
+
+.instructionsBtnBox {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+
+/* Result Screen Styling */
+.resultHeader {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.result {
+  color: white;
+  width: 150px;
+  height: 150px;
+  font-size: 35px;
+  border-radius: 15%;
+  margin: 50px auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  align-self: center;
 }
 
-.App-link {
-  color: #61dafb;
+.best {
+  background-color: green;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.poor {
+  background-color: red;
+}
+
+.average {
+  background-color: #795548;
+}
+
+@media screen and (max-width:800px) {
+  .mainBox {
+    width: 100vw;
+    min-height: 100vh;
+    border-radius: 0px;
   }
 }
