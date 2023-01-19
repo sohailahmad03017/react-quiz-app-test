@@ -1,4 +1,4 @@
-const questions = [
+const questionsData = [
   {
     "category": "Entertainment%3A%20Video%20Games",
     "type": "multiple",
@@ -194,4 +194,4 @@ const questions = [
 ]
 
 
-export default questions;
+export default questionsData;

@@ -5,241 +5,11 @@ import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined';
 import Countdown from '../components/Countdown';
 import SButton from '../components/SButton';
 import { useNavigate } from 'react-router-dom';
+import questionsData from '../assets/questions'
 
 function Quiz() {
 
-    let [questions, setQuestions] = useState([
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Quaid-e-Azam was born on 25 December ________ in Karachi.',
-            correct_answer: '1876',
-            incorrect_answers: [
-                '1877',
-                '1878',
-                '1875'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'easy',
-            question: 'In RAM, M stands for',
-            correct_answer: 'Memory',
-            incorrect_answers: [
-                'Machine',
-                'Merchant',
-                'Message'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'There are ____ main parts of CPU',
-            correct_answer: 'two',
-            incorrect_answers: [
-                'three',
-                'four',
-                'five'
-            ]
-        },
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Quaid-e-Azam was died on ________.',
-            correct_answer: '11 September 1948',
-            incorrect_answers: [
-                '11 September 1947',
-                '21 April 1947',
-                '21 April 1948'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'easy',
-            question: 'Is RAM is a volatile memory?',
-            correct_answer: 'true',
-            incorrect_answers: [
-                'false',
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'Who is known as the father of Computer?',
-            correct_answer: 'Charles Babbage',
-            incorrect_answers: [
-                'Thomas Edison',
-                'Einstein',
-                'Newton'
-            ]
-        },
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Who is our national poet?',
-            correct_answer: 'Allama Iqbal',
-            incorrect_answers: [
-                'Quaid-e-Azam',
-                'Mir Taqqi Mir',
-                'Mirza Galib'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'easy',
-            question: 'HDD is better than SSD.',
-            correct_answer: 'false',
-            incorrect_answers: [
-                'true',
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'There are ____ main parts of CPU',
-            correct_answer: 'two',
-            incorrect_answers: [
-                'three',
-                'four',
-                'five'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'medium',
-            question: 'CU stands for?',
-            correct_answer: 'Control Unit',
-            incorrect_answers: [
-                'Computer System',
-                'Controlled System',
-            ]
-        },
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Quaid-e-Azam was born on 25 December ________ in Karachi.',
-            correct_answer: '1876',
-            incorrect_answers: [
-                '1877',
-                '1878',
-                '1875'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'easy',
-            question: 'In RAM, M stands for',
-            correct_answer: 'Memory',
-            incorrect_answers: [
-                'Machine',
-                'Merchant',
-                'Message'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'There are ____ main parts of CPU',
-            correct_answer: 'two',
-            incorrect_answers: [
-                'three',
-                'four',
-                'five'
-            ]
-        },
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Quaid-e-Azam was died on ________.',
-            correct_answer: '11 September 1948',
-            incorrect_answers: [
-                '11 September 1947',
-                '21 April 1947',
-                '21 April 1948'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'easy',
-            question: 'Is RAM is a volatile memory?',
-            correct_answer: 'true',
-            incorrect_answers: [
-                'false',
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'Who is known as the father of Computer?',
-            correct_answer: 'Charles Babbage',
-            incorrect_answers: [
-                'Thomas Edison',
-                'Einstein',
-                'Newton'
-            ]
-        },
-        {
-            category: 'History',
-            type: "multiple",
-            difficulty: 'hard',
-            question: 'Who is our national poet?',
-            correct_answer: 'Allama Iqbal',
-            incorrect_answers: [
-                'Quaid-e-Azam',
-                'Mir Taqqi Mir',
-                'Mirza Galib'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'easy',
-            question: 'HDD is better than SSD.',
-            correct_answer: 'false',
-            incorrect_answers: [
-                'true',
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "multiple",
-            difficulty: 'medium',
-            question: 'There are ____ main parts of CPU',
-            correct_answer: 'two',
-            incorrect_answers: [
-                'three',
-                'four',
-                'five'
-            ]
-        },
-        {
-            category: 'Computer',
-            type: "bool",
-            difficulty: 'medium',
-            question: 'CU stands for?',
-            correct_answer: 'Control Unit',
-            incorrect_answers: [
-                'Computer System',
-                'Controlled System',
-            ]
-        }
-    ])
+    let [questions, setQuestions] = useState([]);
     let [current, setCurrent] = useState(0);
     let [difficulty, setDifficulty] = useState(2);
     let [options, setOptions] = useState([]);
@@ -254,11 +24,14 @@ function Quiz() {
 
     //Functions
     const checkDifficulty = () => {
-        const level = questions[current].difficulty;
-        level === 'hard' ? setDifficulty(3) : level === 'medium' ? setDifficulty(2) : setDifficulty(1);
+        if (questions && questions.length > 0) {
+            const level = questions[current].difficulty;
+            level === 'hard' ? setDifficulty(3) : level === 'medium' ? setDifficulty(2) : setDifficulty(1)   
+        }
     }
 
     const handleOptions = () => {
+        questions && questions.length > 0 &&
         setOptions([questions[current].correct_answer, ...questions[current].incorrect_answers].sort())
     }
 
@@ -290,6 +63,7 @@ function Quiz() {
         }
         setStopTimer(false);
         setIsTimeOver(false);
+        console.log("in next question")
     }
 
     const checkCorrect = (e) => {
@@ -303,14 +77,38 @@ function Quiz() {
         setIsTimeOver(true);
     };
 
-    useEffect(() => {
+      const URLCharacterChanger = (data) => {
+      return data.replace(/%20/g, " ").replace(/%3A/g,":").replace(/%3F/g,"?").replace(/%2C/g,",").replace(/%22/g,'"').replace(/%26/g,"&").replace(/%27/g,"'").replace(/%24/g,"$");
+  }
+
+  const questionsHandling = () => {
+    questionsData.forEach((obj)=>{
+      for (let x in obj) {
+          if(typeof obj[x] != "object"){
+               obj[x] = URLCharacterChanger(obj[x]);
+            }else{
+              let data = obj[x].map((e)=>{
+              return URLCharacterChanger(e)
+            })
+            obj[x] = data;
+          }      
+        }
+    })
+    setQuestions(questionsData);
+  }
+
+  useEffect(()=>{
+    questionsHandling();
+  },[])
+  
+  useEffect(() => {
         checkDifficulty();
         handleOptions();
-    }, [current])
+    }, [current,questions])
 
 
     return (
-        <div className="mainBox">
+            < div className = "mainBox" >
 
             {/* questions user has attempted */}
             <StatusBar width={attempted / questions.length * 100} />
@@ -332,7 +130,7 @@ function Quiz() {
                 </div>
 
                 {/* Question Rendering */}
-                <Typography variant='h5' mt={3}>{questions[current].question}</Typography>
+                <Typography variant='h5' mt={3}>{questions && questions.length > 0 && questions[current].question}</Typography>
                 <Grid container spacing={3} mt={2} >
                     {
                         options.map((e, i) => {
@@ -403,7 +201,7 @@ function Quiz() {
             </div>
 
         </div>
-    );
+    )
 }
 
 export default Quiz;
